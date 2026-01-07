@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        /* 요소 선택자 */
+        div {
+            background-color: dodgerblue;
+        }
+        /* 클래스 선택자 */
+        .a1 {
+            background-color: orange;
+        }
+        /* 아이디 선택자 */
+        #id100 {
+            background-color: palevioletred;
+        }
+        /* 아이디가 id200 이고 클래스가 a1인 요소 (두개를 모두 가진 요소) */
+        #id200.a1{
+            background-color: brown;
+        }
+
+        .temp{
+            /* 가장 우선순위가 높은 !important 사용법 */
+            /* 충동을 해결할 수 있는 최후의 수단!! */
+            color: aqua !important;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div>div 요소 입니다</div>
+    <p>p 요소 입니다</p>
+    <p class="a1">클래스가 a1 입니다</p>
+    <p class="a2">클래스가 a2 입니다</p>
+    <p id="id100">id가 100 입니다</p>
+    <p id="id200" class="a1">id가 200 입니다</p>
+    <article class="a1">나는 아티클 클래스는 a1 입니다</article>
+    <p class="text" style="border: 1px solid black;"> 인라인 스타일 입니다</p>
+</body>
+</html>
