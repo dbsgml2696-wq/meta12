@@ -27,6 +27,14 @@
             /* 충동을 해결할 수 있는 최후의 수단!! */
             color: aqua !important;
         }
+
+        /* 속성 선택자 */
+        input[type="text"] {
+            border: 2px solid blue;
+        }
+        [data-custom="mystyle1"] {
+            background-color: orange;
+        }
     </style>
     <title>Document</title>
 </head>
@@ -39,5 +47,13 @@
     <p id="id200" class="a1">id가 200 입니다</p>
     <article class="a1">나는 아티클 클래스는 a1 입니다</article>
     <p class="text" style="border: 1px solid black;"> 인라인 스타일 입니다</p>
+
+    <form>
+        <p><input type="text"></p>
+        <p><input type="password"></p>
+        <p data-custom="mystyle1">내가 만든 속성을 사용해도 됨</p>
+        <p data-custom="mystyle2">대신 data-*** 형태 권장</p>
+
+    </form>
 </body>
 </html>
