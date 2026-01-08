@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { /* CSS 모든 웹페이지에 가지고있음 제일 먼저 넣어야함 */ 
+            /* HTML 페이지 전체에 적용되는 기본 마진과 패징을 0으로 만들어서 개발자가 의도대로 스타일링 */
+            margin: 0; padding: 0;
+            box-sizing: border-box;
+        }
+        .a1 {
+            font-size: 32px;
+            border: 2px solid gray;
+            border-radius: 50%;
+            width: 500px; height: 400px;
+            /* padding-left: 100px; -> 패딩을 이용한 정렬이 어렵다 */
+            text-align: center; /* CSS는 가로 정렬만 */
+            line-height: 1.5;
+            padding: 100px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+<div class="a1">가로 정렬을 해보자</div>
+</body>
+</html>
