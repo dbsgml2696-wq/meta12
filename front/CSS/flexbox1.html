@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flexbox 대시보드 레이아웃</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        height: 100vh; /* vh : viewport height = 화면높이 */
+        font-family: Arial, sans-serif;
+      }
+
+      /* 전체 대시보드 */
+      .dashboard {
+        display: flex;
+        height: 100%;
+      }
+
+      /* 왼쪽 네비게이션 */
+      .nav { 
+        width: 220px;
+        background-color: rgb(31, 31, 39);
+        color: white;
+        padding: 20px;
+      
+      }
+
+      /* 오른쪽 전체 영역 */
+      .right {
+        flex: 1;
+        flex-direction: column;
+        background-color: #d4d4d4;
+        display: flex;
+      }
+
+      /* 상단바 */
+      .topbar {
+        height: 60px;
+        background-color: #4d4b63;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+
+      }
+
+      /* 콘텐츠 영역 */
+      .content {
+          flex: 1;
+          display: flex;
+          padding: 20px;
+          gap: 20px;
+          
+      }
+
+      /* 메인 콘텐츠 */
+      .main-content {
+        
+        background-color: #fff;
+        flex: 1;
+        padding: 20px;
+
+      }
+
+      /* 서브 패널 */
+      .side-panel {
+        background-color: rgb(255, 153, 0);
+        padding: 20px;
+        width: 260px;
+
+
+      }
+
+      /* 하단 정보바 */
+      .status {
+        height: 60px;
+        background-color: #747181;
+        color: #fff;
+        text-align: center;
+        justify-content: center;
+        padding: 20px;
+
+        
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboard">
+      <aside class="nav">왼쪽 네비게이션</aside>
+
+      <div class="right">
+        <header class="topbar">상단바 (검색 / 사용자 정보)</header>
+
+        <main class="content">
+          <section class="main-content">메인 콘텐츠 (차트 / 목록)</section>
+
+          <aside class="side-panel">서브 패널 (알림 / 요약)</aside>
+        </main>
+
+        <footer class="status">하단 정보바</footer>
+      </div>
+    </div>
+  </body>
+</html>
