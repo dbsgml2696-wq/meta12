@@ -15,9 +15,13 @@
       }
 
       .battery {
+        /* 무조건 가운데 배차하는 방법 */
+        /* flex 코드 (justify-content:center, align-item:center) 똑같은 용도로 쓰인다 */
         position: absolute;
         top: 50%;
         left: 50%;
+        /* transform 속성의 세부속성 
+        translate(이동), scale(확대 축소), rotate(회전), skew(기울임), perspective(원근)*/
         transform: translate(-50%, -50%);
       }
 
@@ -71,6 +75,7 @@
         }
       }
 
+      /* keyframes animation의 경우 복잡하고 구간이있는곳에서 쓰임 */
       /* @keyframes battery-charge {
         0% {
           height: 0%;
