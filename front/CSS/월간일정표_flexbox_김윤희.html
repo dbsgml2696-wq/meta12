@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>월간일정표_flexbox_김윤희</title>
+    <style>
+
+        * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        }
+
+        body {
+        font-family: Arial, sans-serif;
+        }
+
+        /* 전체 캘린더 */
+        .calendar {
+        width: 900px;
+        margin: 20px auto;
+        border: 1px solid #000;
+        }
+
+        /* 제목 */
+        .title {
+        background: #0b6fc2;
+        color: white;
+        text-align: center;
+        font-size: 30px;
+        padding: 15px 0;
+        }
+
+        /* 요일 */
+        .week {
+        display: flex;
+        }
+
+        .week div {
+        width: 14.28%;
+        border: 1px solid #000;
+        background: #e6f0f8;
+        text-align: center;
+        padding: 10px 0;
+        font-weight: bold;
+        }
+
+        /* 날짜 영역 */
+        .days {
+        display: flex;
+        flex-wrap: wrap;
+        }
+
+        .day {
+        width: 14.28%;
+        height: 120px;
+        border: 1px solid #000;
+        padding: 5px;
+        }
+
+        /* 날짜 숫자 */
+        .date {
+        font-weight: bold;
+        }
+
+        /* 주말 */
+        .weekend {
+        background: #f7caa5;
+        }
+
+        /* 빨간 글씨 */
+        .red {
+        margin-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="calendar">
+    <div class="title">2026년 1월</div>
+
+    <div class="week">
+        <div>일</div>
+        <div>월</div>
+        <div>화</div>
+        <div>수</div>
+        <div>목</div>
+        <div>금</div>
+        <div>토</div>
+    </div>
+
+    <div class="days">
+        <!-- 1월 1일 전 빈칸 -->
+        <div class="day"></div>
+        <div class="day"></div>
+        <div class="day"></div>
+        <div class="day"></div>
+
+        <div class="day">
+        <span class="date">1</span>
+        <p class="red">신년휴일</p>
+        </div>
+
+        <div class="day">
+        <span class="date">2</span>
+        <p>휴강</p>
+        </div>
+
+        <div class="day weekend">
+        <span class="date">3</span>
+        </div>
+
+        <div class="day weekend"><span class="date">4</span></div>
+        <div class="day"><span class="date">5</span><p>HTML</p></div>
+        <div class="day"><span class="date">6</span><p>HTML</p></div>
+        <div class="day"><span class="date">7</span><p>CSS</p></div>
+        <div class="day"><span class="date">8</span><p>CSS</p></div>
+        <div class="day"><span class="date">9</span><p>CSS</p></div>
+        <div class="day weekend"><span class="date">10</span></div>
+
+        <div class="day weekend"><span class="date">11</span></div>
+        <div class="day"><span class="date">12</span><p>CSS</p></div>
+        <div class="day">
+        <span class="date">13</span>
+        <p class="red">개인웹페이지<br>설계</p>
+        </div>
+        <div class="day"><span class="date">14</span><p>Javascript</p></div>
+        <div class="day"><span class="date">15</span><p>Javascript</p></div>
+        <div class="day"><span class="date">16</span><p>Javascript</p></div>
+        <div class="day weekend"><span class="date">17</span></div>
+
+        <div class="day weekend"><span class="date">18</span></div>
+        <div class="day"><span class="date">19</span><p>Javascript</p></div>
+        <div class="day"><span class="date">20</span><p>Javascript</p></div>
+        <div class="day"><span class="date">21</span><p class="red">개인웹페이지<br>만들기</p></div>
+        <div class="day"><span class="date">22</span><p class="red">개인웹페이지<br>만들기</p></div>
+        <div class="day"><span class="date">23</span><p class="red">개인웹페이지<br>만들기</p></div>
+        <div class="day weekend"><span class="date">24</span></div>
+
+        <div class="day weekend"><span class="date">25</span></div>
+        <div class="day">
+        <span class="date">26</span>
+        <p class="red">과정마무리<br>테스트</p>
+        </div>
+        <div class="day"><span class="date">27</span></div>
+        <div class="day"><span class="date">28</span></div>
+        <div class="day"><span class="date">29</span></div>
+        <div class="day"><span class="date">30</span></div>
+    </div>
+    </div>
+
+</body>
+</html>
