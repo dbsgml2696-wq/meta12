@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>2026년 1월 일정표 (Flex)</title>
+  <style>
+    /* 1. 기본 설정 (필수!) */
+    * {
+      box-sizing: border-box; /* 테두리 포함 크기 계산 */
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      padding: 20px;
+    }
+
+    .calendar-container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      border: 2px solid #000;
+    }
+
+    .header {
+      background-color: #0070c0;
+      color: white;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      padding: 15px;
+      border-bottom: 1px solid #000;
+    }
+
+    /* 2. Flex 컨테이너 설정 (여기가 Grid와 다름!) */
+    .calendar-flex {
+      display: flex;      /* 플렉스 박스 선언 */
+      flex-wrap: wrap;    /* 아이템이 넘치면 줄바꿈 (필수) */
+      
+      /* 테두리 공식: 부모는 위, 왼쪽 */
+      border-top: 1px solid #000;
+      border-left: 1px solid #000;
+    }
+
+    /* 3. 셀(아이템) 설정 */
+    .cell {
+      /* 너비 계산: 100% 나누기 7 */
+      width: calc(100% / 7); 
+      
+      min-height: 100px;
+      padding: 5px;
+      text-align: center;
+      /* position: relative; */
+      
+      /* 테두리 공식: 자식은 아래, 오른쪽 */
+      border-right: 1px solid #000;
+      border-bottom: 1px solid #000;
+    }
+
+    /* 요일 헤더는 높이를 줄임 */
+    .day-name {
+      background-color: #dce6f1;
+      font-weight: bold;
+      height: 40px;
+      line-height: 40px;
+      min-height: auto;
+    }
+
+    /* 내용 스타일링 (Grid와 동일) */
+    .date-num {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .schedule {
+      font-size: 13px;
+      word-break: keep-all;
+    }
+
+    .red-text { color: red; }
+
+    /* --- nth-child 로직 (Flex에서도 동일하게 작동) --- */
+    
+    /* 일요일 (1, 8, 15...) */
+    .calendar-flex > div:nth-child(7n + 1) {
+      background-color: #fcd5b4;
+    }
+    
+    /* 토요일 (7, 14, 21...) */
+    .calendar-flex > div:nth-child(7n) {
+      background-color: #fcd5b4;
+    }
+
+    /* 요일 헤더 배경색 덮어쓰기 */
+    .calendar-flex > .day-name {
+      background-color: #dce6f1;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="calendar-container">
+    <div class="header">2026년 1월</div>
+
+    <div class="calendar-flex">
+      
+      <div class="cell day-name">일</div>
+      <div class="cell day-name">월</div>
+      <div class="cell day-name">화</div>
+      <div class="cell day-name">수</div>
+      <div class="cell day-name">목</div>
+      <div class="cell day-name">금</div>
+      <div class="cell day-name">토</div>
+
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+
+      <div class="cell">
+        <span class="date-num">1</span>
+        <span class="schedule red-text ">신년휴일</span>
+      </div>
+      <div class="cell">
+        <span class="date-num">2</span>
+        <span class="schedule">휴강</span>
+      </div>
+      <div class="cell"><span class="date-num">3</span></div>
+
+      <div class="cell"><span class="date-num">4</span></div>
+      <div class="cell">
+        <span class="date-num">5</span>
+        <span class="schedule">HTML</span>
+      </div>
+      <div class="cell">
+        <span class="date-num">6</span>
+        <span class="schedule">HTML</span>
+      </div>
+      <div class="cell">
+        <span class="date-num">7</span>
+        <span class="schedule">CSS</span>
+      </div>
+      <div class="cell">
+        <span class="date-num">8</span>
+        <span class="schedule">CSS</span>
+      </div>
+      <div class="cell">
+        <span class="date-num">9</span>
+        <span class="schedule">CSS</span>
+      </div>
+      <div class="cell"><span class="date-num">10</span></div>
+
+      <div class="cell"><span class="date-num">11</span></div>
+      <div class="cell">
+        <span class="date-num">12</span>
+        <span class="schedule">CSS</span>
+      </div>
+      <div class="cell">
+        <span class="date-num">13</span>
+        <span class="schedule ">개인웹페이지<br>설계</span>
+      </div>
+      <div class="cell">
+        <span class="date-num">14</span>
+        <span class="schedule ">Javascript</span>
+      </div>
+      <div class="cell">
+        <span class="date-num">15</span>
+        <span class="schedule ">Javascript</span>
+      </div>
+      <div class="cell">
+        <span class="date-num">16</span>
+        <span class="schedule ">Javascript</span>
+      </div>
+      <div class="cell"><span class="date-num">17</span></div>
+
+      <div class="cell"><span class="date-num">18</span></div>
+      <div class="cell">
+        <span class="date-num">19</span>
+        <span class="schedule ">Javascript</span>
+      </div>
+      <div class="cell">
+        <span class="date-num">20</span>
+        <span class="schedule ">Javascript</span>
+      </div>
+      <div class="cell">
+        <span class="date-num">21</span>
+        <span class="schedule ">개인웹페이지<br>만들기</span>
+      </div>
+      <div class="cell">
+        <span class="date-num">22</span>
+        <span class="schedule ">개인웹페이지<br>만들기</span>
+      </div>
+      <div class="cell">
+        <span class="date-num">23</span>
+        <span class="schedule ">개인웹페이지<br>만들기</span>
+      </div>
+      <div class="cell"><span class="date-num">24</span></div>
+
+      <div class="cell"><span class="date-num">25</span></div>
+      <div class="cell">
+        <span class="date-num">26</span>
+        <span class="schedule ">과정마무리<br>테스트</span>
+      </div>
+      <div class="cell"><span class="date-num">27</span></div>
+      <div class="cell"><span class="date-num">28</span></div>
+      <div class="cell"><span class="date-num">29</span></div>
+      <div class="cell"><span class="date-num">30</span></div>
+      <div class="cell"><span class="date-num">31</span></div>
+    </div>
+  </div>
+
+</body>
+</html>
