@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // if 단독 사용
+      let userName;
+      if (userName != undefined) {
+        console.log(userName);
+      }
+      console.log("시작...");
+      console.log("--------------------");
+
+      //   if ~ else
+      if (userName != undefined) {
+        console.log(userName);
+      } else {
+        console.log("이름이 없습니다");
+      }
+      console.log("시작...");
+      console.log("--------------------");
+
+      // 연습
+      // parseInt () 형변환 함수 : 다른 자료형을 정수 형으로 변환해주는 함수
+      let userNumber = parseInt(prompt("숫자를 입력하세요."));
+      //   if (userNumber % 2 == 0) {
+      //     document.write("짝수입니다");
+      //     console.log("짝수입니다");
+      //   } else {
+      //     document.wire("홀수입니다");
+      //     console.log("홀수입니다");
+      //   }
+
+      // 수정본
+      //   NaN : Not a Number 숫자아님
+      if (Number.isNaN(userNumber)) {
+        console.log(userNumber); //NaN
+        document.write("숫자만 입력해줄래??");
+      } else if (userNumber % 2 == 0) {
+        document.write("짝수입니다");
+        console.log("짝수입니다");
+      } else {
+        document.wire("홀수입니다");
+        console.log("홀수입니다");
+      }
+    </script>
+  </body>
+</html>
