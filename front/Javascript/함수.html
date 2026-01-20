@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 함수의 선언부
+      // 이 코드영역(15~20라인)은 즉시 실행되지 않고 반드시 함수의 호출이 발생해야 실행됨
+      // function 예약어를 사용하는 함수의 선언부는 코드의 위치와 상관없이 동작됨.
+      // (= 페이지의 아래부분에 있더라고 동일함)
+      function sum() {
+        let n = 10; //블록 스코프 (=지역변수)
+        let result = 0; //블록 스코프 (=지역변수)
+
+        for (let i = 1; i <= n; i++) {
+          result += i;
+        }
+        console.log(result);
+      }
+      let global = 10; //글로벌 스코프 변수 (=전역변수)
+      sum();
+
+      // console.log(result); //오류 발생. 지역변수 (블록 스코프 )이므로 sum()함수의 종료시 함께 삭제됨
+      console.log(global); //정상 츻력. 전역변수
+
+      //  매개변수, 인수, return
+      function addNumber(num1, num2) {
+        //num1 과 num2는 매개변수
+        let sum = num1 + num2;
+        return sum; //리턴
+      }
+      let value = addNumber(2, 3); //2와3은 인수
+      console.log(value);
+    </script>
+  </body>
+</html>

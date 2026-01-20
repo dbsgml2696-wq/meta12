@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // *** 함수의 선언방법 4가지 ***
+      // 1. function 예약어를 이용한 호이스팅이 가능한 선언법
+      // function foo(){}
+      function addNumber(num1, num2) {
+        let sum = num1 + num2;
+        return sum;
+      }
+      console.log(addNumber(2, 3)); //5
+
+      // 2. function 예약어를 이용한 함수 이름이 없는 "익명함수" 선언법
+      //   const foo = function() {}
+      let sum = function (num1, num2) {
+        return num1 + num2;
+      };
+      console.log(sum(2, 3)); //5
+
+      // 3. 즉시 실행 함수 선언법
+      //   한 번만 실행할 초기화 로직에 주로 사용함. 함수 재사용성이 없음. (1,2,4번은 재사용성이 있음)
+      //   (function() {})();
+      const result = (function (num1, num2) {
+        return num1 + num2;
+      })(2, 3);
+      console.log(result); //5
+
+      // 4. 화살표 함수 선언법
+      //   const foo = () => {};
+      //   애로우 함수는 return 예약어를 사용하지 않는 경우가 많음.
+      // 주로 짧은 실행코드를 가진 함수를 선언할 떄 자주 사용하기 떄문.
+      // **규칙**
+      // 애로우 함수내에 {}를 쓰면 반드시 return을 사용
+      // 반대로 return이 없으면 {}역시 생략 해야 한다
+      let sum2 = (num1, num2) => {
+        return num1 + num2;
+      };
+      let sum3 = (num1, num2) => num1 + num2; //return과 {} 둘 다 생략
+      console.log(sum2(2, 3)); //5
+      console.log(sum3(2, 3)); //5
+    </script>
+  </body>
+</html>
