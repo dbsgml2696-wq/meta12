@@ -227,6 +227,34 @@
         const index = (currentIndex + 1) % greetings.length;
         greeting.textContent = greetings[index];
       }
+
+      function showName() {
+        // 1 : input과 nameDisplay 요소를 변수에 저장
+        const nameInput = document.querySelector("#nameInput");
+        const nameDisplay = document.querySelector("#nameDisplay");
+        // 2 : input 요소에 입력된 텍스트를 읽어서 변수저장
+        const name = nameInput.value;
+        // 3 : nameDisplay의 textContent에 이름 텍스트를 저장
+        nameDisplay.textContent = name;
+      }
+
+      function increaseCounter() {
+        // 1. counter 요소를 변수에 저장
+        const counter = document.querySelector("#counter");
+        // 2. count라는 변수에 counter 요소의 내용(textContent)을 저장
+        // DOM에서 읽는 모든 value(값)은 문자이기 때문에 숫자로 변환
+        let count = Number(counter.textContent); //parseInt()도 사용 가능
+        // 3. count 변수를 1 증가 시킴
+        count++;
+        // 4. counter 요소의 textContent에 count 변수의 값을 저장
+        counter.textContent = count;
+      }
+      function resetCounter() {
+        // 1. counter 요소를 변수에 저장
+        const counter = document.querySelector("#counter");
+        // 2. counter 요소의 textContent에 count 0을 저장
+        counter.textContent = 0;
+      }
     </script>
   </body>
 </html>
