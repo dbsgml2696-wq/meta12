@@ -1,0 +1,351 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f4f4;
+}
+
+a {
+  text-decoration: none; /* 밑줄 제거 */
+  color: #ff7b00;
+}
+
+li {
+  list-style: none; /* 리스트의 기본 표시 요소 제거 */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px 24px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100; /* 100에 특별한 의미없음, 상대적으론 큰 값을 부여하는게 일반적 (9999) */
+}
+
+.navbar-logo a {
+  font-size: 24px;
+  font-weight: 700;
+  color: #001e3b;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 30px;
+}
+.navbar-menu a {
+  display: block; /* 중요 : 블록 속성으로 비꿔서 클릭 영역을 확보해준다*/
+  font-weight: 600;
+  font-size: 16px;
+  color: #555;
+  padding: 8px 12px;
+  transition: color 0.3s;
+}
+
+.navbar-menu a:hover {
+  color: #ff4800;
+}
+
+.navbar-menu li {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none; /* 평소에는 숨김 */
+  position: absolute;
+  top: 100%; /* 부모 컨텐츠 바로 아래 */
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 10px 0;
+  z-index: 101; /* 100보다 1크게 */
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content li a {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.dropdown-content li a:hover {
+  background-color: #ffeddd;
+}
+
+.navbar-icons {
+  display: flex;
+  align-items: center;
+}
+
+.btn-login {
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.btn-login:hover {
+  background-color: #ff4800;
+}
+
+.navbar-toggleBtn {
+  font-size: 24px; /* 외부에서 가져온 아이콘은 폰트크기로 크기를 조절 */
+  color: #ff7300;
+  cursor: pointer;
+  padding: 5px;
+  display: none;
+}
+
+/* [반응형 - 모바일 (768px 이하)] */
+/* 미디어 쿼리는 반드시 css의 제일 아래 부분에 작성해야 함 */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start; /*왼쪽정렬*/
+    padding: 16px 24px;
+  }
+
+  .navbar-menu {
+    display: none; /* 모바일 사이즈에서 평소에는 안보임. 햄버거 버튼 클릭하면 보여야함*/
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    gap: 0;
+  }
+
+  /* JS로 active 클래스가 붙으면 보이기 */
+  /* JS에서 햄버거 버튼을 클릭하면 .active가 생겼다가 사라졌다 함(=토글) */
+  .navbar-menu.active {
+    display: flex;
+  }
+
+  .navbar-menu li {
+    width: 100%;
+  }
+
+  .navbar-menu a {
+    padding: 16px 20px;
+    border-bottom: 1px solid #ffd1bf;
+  }
+
+  .dropdown-content {
+    /* 모바일에서는 호버가 안되므로 absolute로 지정했던 모든 스타일링을 기본으로 변경함 */
+    display: block;
+    position: static;
+    box-shadow: none;
+    background-color: #f9f9f9;
+    width: 100%;
+    transform: none;
+    padding: 0;
+  }
+
+  .dropdown-content li a {
+    padding-left: 40px;
+    font-size: 14px;
+    color: #ffbc8f;
+  }
+
+  /* 햄버거 버튼 보이기 & 위치 잡기 */
+  .navbar-toggleBtn {
+    display: block;
+    position: absolute;
+    right: 24px;
+    top: 18px;
+  }
+
+  /* 모바일에서 로그인 버튼 숨김 */
+  .btn-login {
+    display: none;
+  }
+}
+
+/* 컨테이너 및 레이아웃 */
+.container {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* 왼쪽 이미지 섹션 */
+.image-section {
+  flex: 1.2;
+  position: relative;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none; /* 부모 요소인 Flexbox의 자동 크기 조절을 끔 */
+  width: 600px;
+
+  overflow: hidden; /* 영역 밖으로 나가는 이미지 숨김 */
+}
+
+.main-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s ease; /* 부드러운 움직임 속도 */
+}
+.main-image:hover img {
+  transform: scale(1.2); /* 1.2배 확대 (숫자를 조절해 보세요) */
+}
+
+/* 기본 이미지에 클릭 커서 추가 */
+.main-image img {
+  cursor: pointer;
+  transition: 0.3s;
+}
+.main-image img:hover {
+  opacity: 0.9; /* 마우스 올리면 살짝 투명하게 */
+}
+
+/* 모달 배경 (전체를 덮는 검은 배경) */
+.modal {
+  display: none; /* 평소에는 숨김 */
+  position: fixed;
+  z-index: 9999; /* 최상단에 배치 */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* 배경 어둡게 */
+  cursor: zoom-out; /* 클릭하면 닫힌다는 느낌 제공 */
+}
+
+/* 확대된 이미지 스타일 */
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 85%;
+  max-height: 85%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: zoom 0.3s; /* 나타날 때 애니메이션 */
+}
+
+@keyframes zoom {
+  from {
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* 모달 내 화살표 공통 스타일 */
+.modal-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0);
+  color: rgb(255, 94, 0);
+  border: none;
+  font-size: 50px;
+  padding: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  user-select: none;
+  z-index: 10000;
+}
+
+.modal-btn:hover {
+  color: #eee;
+}
+
+.prev {
+  left: 20px;
+}
+.next {
+  right: 20px;
+}
+
+/* 닫기 버튼 위치 조정 (화살표와 겹치지 않게) */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+/* 닫기 버튼 */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ffffff00;
+  color: rgb(255, 81, 0);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 10;
+}
+
+.left {
+  left: 0;
+}
+.right {
+  right: 0;
+}
+
+/* 오른쪽 그리드 섹션 */
+.grid-section {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 15px;
+}
+
+.grid-item {
+  background-color: #ffbb83; /* 시안의 노란색 박스 톤 */
+  padding: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  min-height: 200px;
+  border-radius: 4px;
+}
+
+.grid-item:hover {
+  background-color: #ff4800;
+  color: #fff;
+}
