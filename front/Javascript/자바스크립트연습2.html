@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 연습 2: 스타일 변경</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 900px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+      .practice-box {
+        background: white;
+        padding: 30px;
+        margin: 20px 0;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        color: #333;
+        border-bottom: 3px solid #2196f3;
+        padding-bottom: 10px;
+      }
+      button {
+        background-color: #2196f3;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+        transition: all 0.3s;
+      }
+      button:hover {
+        background-color: #0b7dda;
+      }
+      .instruction {
+        background-color: #e3f2fd;
+        padding: 15px;
+        border-left: 4px solid #2196f3;
+        margin: 15px 0;
+        border-radius: 3px;
+      }
+      .result-box {
+        min-height: 80px;
+        padding: 20px;
+        margin: 15px 0;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        font-size: 18px;
+        transition: all 0.3s;
+      }
+
+      /* 연습 3에서 사용할 클래스들 */
+      .card {
+        padding: 20px;
+        margin: 10px 0;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        transition: all 0.3s;
+      }
+      .card.active {
+        background-color: #4caf50;
+        color: white;
+        border-color: #4caf50;
+        transform: scale(1.05);
+      }
+
+      /* 연습 4에서 사용할 클래스들 */
+      .theme-light {
+        background-color: white;
+        color: #333;
+      }
+      .theme-dark {
+        background-color: #222;
+        color: white;
+      }
+
+      /* 연습 5에서 사용할 클래스들 */
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: #2196f3;
+        margin: 20px auto;
+        transition: all 0.5s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+      }
+      .box.rotate {
+        transform: rotate(180deg);
+      }
+      .box.big {
+        transform: scale(1.5);
+      }
+      .box.red {
+        background-color: #f44336;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center; color: #2196f3">
+      🎨 DOM 조작 연습 - 스타일 변경
+    </h1>
+
+    <!-- 연습 1: 색상 변경 -->
+    <div class="practice-box">
+      <h2>연습 1: 배경색 바꾸기</h2>
+      <div class="instruction">
+        📝 <strong>목표:</strong> 버튼을 클릭하면 박스의 배경색이 바뀌도록
+        만드세요.
+      </div>
+
+      <div id="colorBox" class="result-box">이 박스의 색을 바꿔보세요</div>
+      <button onclick="changeToRed()">빨강</button>
+      <button onclick="changeToBlue()">파랑</button>
+      <button onclick="changeToGreen()">초록</button>
+    </div>
+
+    <!-- 연습 2: 크기 변경 -->
+    <div class="practice-box">
+      <h2>연습 2: 글자 크기 조절</h2>
+      <div class="instruction">
+        📝 <strong>목표:</strong> 버튼을 클릭하면 텍스트 크기가 변경되도록
+        만드세요.
+      </div>
+
+      <div id="textBox" class="result-box" style="text-align: center">
+        크기를 조절해보세요
+      </div>
+      <button onclick="makeBigger()">크게 📈</button>
+      <button onclick="makeSmaller()">작게 📉</button>
+      <button onclick="resetSize()">원래대로</button>
+    </div>
+
+    <!-- 연습 3: 클래스 토글 -->
+    <div class="practice-box">
+      <h2>연습 3: 카드 선택 (클래스 사용)</h2>
+      <div class="instruction">
+        📝 <strong>목표:</strong> 카드를 클릭하면 선택된 상태로 만들고, 다시
+        클릭하면 해제되도록 만드세요.
+      </div>
+
+      <div id="card1" class="card" onclick="toggleCard('card1')">
+        카드 1 - 클릭해보세요
+      </div>
+      <div id="card2" class="card" onclick="toggleCard('card2')">
+        카드 2 - 클릭해보세요
+      </div>
+      <div id="card3" class="card" onclick="toggleCard('card3')">
+        카드 3 - 클릭해보세요
+      </div>
+    </div>
+
+    <!-- 연습 4: 다크모드 -->
+    <div class="practice-box">
+      <h2>연습 4: 다크모드 전환</h2>
+      <div class="instruction">
+        📝 <strong>목표:</strong> 버튼을 클릭하면 라이트/다크 모드가 전환되도록
+        만드세요.
+      </div>
+
+      <div id="themeBox" class="result-box theme-light">
+        <h3 style="margin: 0">현재 테마</h3>
+        <p>이 영역의 테마를 변경해보세요</p>
+      </div>
+      <button onclick="toggleTheme()">🌓 테마 전환</button>
+    </div>
+
+    <!-- 연습 5: 종합 연습 -->
+    <div class="practice-box">
+      <h2>연습 5: 애니메이션 박스 (종합)</h2>
+      <div class="instruction">
+        📝 <strong>목표:</strong> 여러 스타일을 동시에 적용해보세요.
+      </div>
+
+      <div id="animBox" class="box">BOX</div>
+      <div style="text-align: center">
+        <button onclick="rotateBox()">🔄 회전</button>
+        <button onclick="enlargeBox()">📏 크게</button>
+        <button onclick="changeBoxColor()">🎨 색 변경</button>
+        <button onclick="resetBox()">↺ 초기화</button>
+      </div>
+    </div>
+
+    <script>
+      // 연습 1
+      // 자바스크립트로 style을 직접 변경할 수 있음 (CSS없이)
+
+      function changeToRed() {
+        const colorBox = document.querySelector("#colorBox");
+        colorBox.style.backgroundColor = "red";
+      }
+      function changeToBlue() {
+        const colorBox = document.querySelector("#colorBox");
+        colorBox.style.backgroundColor = "blue";
+      }
+      function changeToGreen() {
+        const colorBox = document.querySelector("#colorBox");
+        colorBox.style.backgroundColor = "green";
+      }
+
+      //   연습 2
+      let currentSize = 18; //기본크기
+      function makeBigger() {
+        const textBox = document.querySelector("#textBox");
+        // 실행코드를 하나의 조건문 안에 넣으면 특정 조건을 만족해야만 실행이 되므로 안전 : "방어코드"
+        if (currentSize > 10) {
+          currentSize += 4; //currentSize = currentSize + 4의 단축형
+          textBox.style.fontSize = currentSize + "px"; //뒤에 px를 붙여야함
+        }
+      }
+      function makeSmaller() {
+        const textBox = document.querySelector("#textBox");
+        if (currentSize <= 10) {
+          // 위 코드와 완전히 동일한 효과
+          return; // return의 의미는 함수를 탈출하라는 뜻. 실제로 많이 쓰이는 방어코드의 형태
+        }
+        currentSize -= 4;
+        textBox.style.fontSize = currentSize + "px";
+        // textBox.style.fontSize = currentSize;
+      }
+      function resetSize() {
+        const textBox = document.querySelector("#textBox");
+        textBox.style.fontSize = "18px";
+      }
+
+      //   연습3
+      function toggleCard(cardId) {
+        // 특정한 HTML요소가 정해지지 않았고 매개변수로 전달되기 때문에 매개변수를 사용해야함
+        const card = document.querySelector(`#${cardId}`); //백틱문법이 가장 유용함
+        // const card2 = document.getElementById(cardId)  //백틱 문법 필요없음
+
+        // active의 개념은 고정된 것이 아니라 CSS 스타일링을 미리 해놓고
+        // 자바 스크립트가 선택적으로 active 클래스를 적용하고 삭제하는 방식
+        // acrive라는 이름은 자유롭게 바꿀 수 있음
+        card.classList.toggle("active");
+      }
+      function toggleCard2(cardId) {
+        const card = document.querySelector(`#${cardId}`);
+        card.classList.contains("active") // contains 찾아야할 클래스 이름의 포함여부를 알려줌
+          ? card.classList.remove("active")
+          : card.classList.add("active");
+      }
+      //   연습 4
+      function toggleTheme() {
+        const themeBox = document.querySelector("#themeBox");
+        if (themeBox.classList.contains("theme-light")) {
+          themeBox.classList.remove("theme-light"); //두개의 클래스가 공존하면 안됨
+          themeBox.classList.add("theme-dark");
+        } else {
+          themeBox.classList.remove("theme-dark"); //두개의 클래스가 공존하면 안됨
+          themeBox.classList.add("theme-light");
+        }
+      }
+
+      //   연습 5
+      function rotateBox() {
+        const animBox = document.querySelector("#animBox");
+        animBox.classList.toggle("rotate");
+      }
+      function enlargeBox() {
+        const animBox = document.querySelector("#animBox");
+        animBox.classList.toggle("big");
+      }
+      function changeBoxColor() {
+        const animBox = document.querySelector("#animBox");
+        animBox.classList.toggle("red");
+      }
+      function resetBox() {
+        const animBox = document.querySelector("#animBox");
+        animBox.classList.remove("rotate", "big", "red");
+      }
+    </script>
+  </body>
+</html>
