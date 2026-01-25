@@ -7,10 +7,10 @@ const mainImg = document.querySelector(".main-image img");
 document.addEventListener("DOMContentLoaded", function () {
   // 1. 이미지 리스트 (실제 폴더에 있는 이미지 파일명을 꼭 확인하고 넣어주세요!)
   const imageList = [
-    "./img/KakaoTalk_20260116_172619312_04.jpg",
-    "./img/KakaoTalk_20260116_172619312_05.jpg",
-    "./img/KakaoTalk_20260116_172619312_02.jpg",
-    "./img/KakaoTalk_20260116_172619312_03.jpg", // 이 이름의 파일이 실제로 폴더에 있어야 합니다.
+    "./img/IMG_0384.jpg",
+    "./img/IMG_1346.jpg",
+    "./img/IMG_2835.jpg",
+    "./img/IMG_8093.jpg", // 이 이름의 파일이 실제로 폴더에 있어야 합니다.
   ];
 
   let currentIndex = 0;

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="개인프로젝트3.css" />
+</head>
+<body>
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <a href="#">Hwantastic</a>
+      </div>
+      <ul class="navbar-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Profile</a></li>
+        <li class="dropdown">
+          <a href="#"
+            >Media <i class="fas fa-caret-down" style="margin-left: 5px"></i
+          ></a>
+          <ul class="dropdown-content">
+            <li><a href="#">Photo</a></li>
+            <li><a href="#">Video</a></li>
+            <li><a href="#">News</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Cheer</a></li>
+      </ul>
+      <div class="navbar-icons">
+        <a href="#" class="btn-login">Login</a>
+        <a href="#" class="navbar-toggleBtn"><i class="fas fa-bars"></i></a>
+      </div>
+    </nav>
+   <main class="media-container">
+        <div class="main-display">
+            <img id="main-img" src="/project/img/IMG_2098.JPG" alt="메인 이미지">
+        </div>
+
+        <div class="controls">
+            <div class="arrow" id="prev-btn">◀</div>
+            <div id="thumb-container"></div>
+            <div class="arrow" id="next-btn">▶</div>
+        </div>
+    </main>
+    <script src="/project/개인프로젝트3.js"></script>
+</body>
+</html>
