@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문의하기 모달 예제</title>
+    <style>
+      /* 초기화 및 레이아웃 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(
+          135deg,
+          #4facfe 0%,
+          #00f2fe 100%
+        ); /* 신뢰감을 주는 파란색 배경 */
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      /* 버튼 스타일 */
+      .btn {
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        color: white;
+        transition: transform 0.2s;
+        font-size: 1em;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        background: #007bff;
+      }
+      .btn-secondary {
+        background: #6c757d;
+      }
+
+      /* 결과 메시지 박스 */
+      .result-box {
+        margin-top: 20px;
+        padding: 15px 25px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        display: none;
+        color: #0056b3;
+        font-weight: bold;
+        animation: slideUp 0.3s;
+      }
+
+      /* 모달 오버레이 */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(3px);
+      }
+      .modal-overlay.active {
+        display: flex;
+        animation: fadeIn 0.2s;
+      }
+
+      /* 모달 박스 */
+      .modal {
+        background: white;
+        border-radius: 15px;
+        width: 90%;
+        max-width: 500px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        animation: slideDown 0.3s;
+      }
+
+      .modal-header {
+        padding: 20px 25px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .modal-header h3 {
+        margin: 0;
+        color: #333;
+      }
+
+      .modal-close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #999;
+      }
+      .modal-close:hover {
+        color: #333;
+      }
+
+      .modal-body {
+        padding: 25px;
+      }
+
+      /* 폼 스타일 */
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+        font-weight: 600;
+        font-size: 0.9em;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e9ecef;
+        border-radius: 8px;
+        font-size: 1em;
+        transition: border-color 0.3s;
+        font-family: inherit;
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #007bff;
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .modal-footer {
+        padding: 20px 25px;
+        border-top: 1px solid #eee;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+
+      /* 애니메이션 */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn btn-primary" onclick="openModal()">📧 문의하기</button>
+
+    <div id="resultBox" class="result-box"></div>
+
+    <div
+      class="modal-overlay"
+      id="modalOverlay"
+      onclick="closeModalOnOverlay(event)"
+    >
+      <div class="modal">
+        <div class="modal-header">
+          <h3>📧 문의하기</h3>
+          <button class="modal-close" onclick="closeModal()">×</button>
+        </div>
+        <div class="modal-body">
+          <form id="contactForm" onsubmit="handleContactSubmit(event)">
+            <div class="form-group">
+              <label>이름</label>
+              <input
+                type="text"
+                id="contactName"
+                placeholder="이름을 입력하세요"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>이메일</label>
+              <input
+                type="email"
+                id="contactEmail"
+                placeholder="email@example.com"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>문의 유형</label>
+              <select id="contactType" required>
+                <option value="">선택하세요</option>
+                <option value="general">일반 문의</option>
+                <option value="technical">기술 지원</option>
+                <option value="billing">결제 문의</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>내용</label>
+              <textarea
+                id="contactMessage"
+                placeholder="문의 내용을 입력하세요"
+                required
+              ></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            onclick="closeModal()"
+          >
+            취소
+          </button>
+          <button type="submit" form="contactForm" class="btn btn-primary">
+            전송
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const overlay = document.getElementById("modalOverlay");
+      const resultBox = document.getElementById("resultBox");
+      const contactForm = document.getElementById("contactForm");
+
+      // 1. 모달 열기
+      function openModal() {
+        // 기존 innerHTML 방식처럼 매번 깨끗한 폼을 보여주기 위해 리셋
+        contactForm.reset();
+
+        overlay.classList.add("active");
+        document.addEventListener("keydown", handleEscKey);
+      }
+
+      // 2. 모달 닫기
+      function closeModal() {
+        overlay.classList.remove("active");
+        document.removeEventListener("keydown", handleEscKey);
+      }
+
+      // 3. 폼 제출 처리
+      function handleContactSubmit(event) {
+        // preventDefault는 각 HTML요소가 가지고 있는 고유의 행동을 막고자하는 것
+        // 예) <a>는 페이지 이동, <form>은 페이지 갱신 등등
+        event.preventDefault(); // 새로고침 방지
+
+        // 입력값 가져오기
+        const name = document.getElementById("contactName").value;
+        const email = document.getElementById("contactEmail").value;
+        const typeSelect = document.getElementById("contactType");
+        const type = typeSelect.options[typeSelect.selectedIndex].text;
+
+        closeModal(); // 모달 닫기
+
+        // 결과 보여주기
+        resultBox.innerHTML = `✅ <b>${name}</b>님의 <b>[${type}]</b> 문의가 접수되었습니다.<br><small>회신 이메일: ${email}</small>`;
+        resultBox.style.display = "block";
+
+        // 5초 뒤 메시지 숨기기
+        setTimeout(() => {
+          resultBox.style.display = "none";
+        }, 5000);
+      }
+
+      // 오버레이 클릭 시 닫기
+      function closeModalOnOverlay(e) {
+        if (e.target === overlay) {
+          closeModal();
+        }
+      }
+
+      // ESC 키로 닫기
+      function handleEscKey(e) {
+        if (e.key === "Escape") {
+          closeModal();
+        }
+      }
+    </script>
+  </body>
+</html>

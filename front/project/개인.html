@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hwantastic - 노시환 팬페이지</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <a href="#" onclick="loadPage('개인프로젝트.html')">Hwantastic</a>
+      </div>
+      <ul class="navbar-menu">
+        <li><a href="#" onclick="loadPage('개인프로젝트.html')">Home</a></li>
+        <li>
+          <a href="#" onclick="loadPage('개인프로젝트2.html')">Profile</a>
+        </li>
+        <li class="dropdown">
+          <a href="#">Media <i class="fas fa-caret-down"></i></a>
+          <ul class="dropdown-content">
+            <li>
+              <a href="#" onclick="loadPage('개인프로젝트3.html')">Photo</a>
+            </li>
+            <li>
+              <a href="#" onclick="loadPage('개인프로젝트3.html')">Video</a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#" onclick="loadPage('개인프로젝트4.html')">Cheer</a></li>
+      </ul>
+      <div class="navbar-icons">
+        <a href="#" class="btn-login">Login</a>
+        <a href="#" class="navbar-toggleBtn"><i class="fas fa-bars"></i></a>
+      </div>
+    </nav>
+
+    <div id="container-view"></div>
+
+    <script src="./개인.js"></script>
+  </body>
+</html>
