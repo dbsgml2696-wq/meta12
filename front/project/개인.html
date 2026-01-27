@@ -2,44 +2,169 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <title>Hwantastic - 노시환 팬페이지</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hwantastic Fan Page</title>
+
+    <!-- CSS (기존 파일 전부 유지) -->
+    <link rel="stylesheet" href="개인.css" />
+
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
   </head>
+
   <body>
+    <!-- ================= NAV ================= -->
     <nav class="navbar">
       <div class="navbar-logo">
-        <a href="#" onclick="loadPage('개인프로젝트.html')">Hwantastic</a>
+        <a href="#home">Hwantastic</a>
       </div>
+
       <ul class="navbar-menu">
-        <li><a href="#" onclick="loadPage('개인프로젝트.html')">Home</a></li>
-        <li>
-          <a href="#" onclick="loadPage('개인프로젝트2.html')">Profile</a>
-        </li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#profile">Profile</a></li>
         <li class="dropdown">
-          <a href="#">Media <i class="fas fa-caret-down"></i></a>
+          <a href="#media">
+            Media <i class="fas fa-caret-down" style="margin-left: 5px"></i>
+          </a>
           <ul class="dropdown-content">
-            <li>
-              <a href="#" onclick="loadPage('개인프로젝트3.html')">Photo</a>
-            </li>
-            <li>
-              <a href="#" onclick="loadPage('개인프로젝트3.html')">Video</a>
-            </li>
+            <li><a href="#media">Photo</a></li>
+            <li><a href="#media">Video</a></li>
+            <li><a href="#media">News</a></li>
           </ul>
         </li>
-        <li><a href="#" onclick="loadPage('개인프로젝트4.html')">Cheer</a></li>
+        <li><a href="#cheer">Cheer</a></li>
       </ul>
+
       <div class="navbar-icons">
         <a href="#" class="btn-login">Login</a>
-        <a href="#" class="navbar-toggleBtn"><i class="fas fa-bars"></i></a>
+        <a href="#" class="navbar-toggleBtn">
+          <i class="fas fa-bars"></i>
+        </a>
       </div>
     </nav>
 
-    <div id="container-view"></div>
+    <!-- ================= MAIN ================= -->
+    <main>
+      <!-- ===== HOME ===== -->
+      <section id="home" class="container">
+        <div class="content-wrapper">
+          <div class="image-section">
+            <button class="arrow left" id="mainPrev">◀</button>
 
-    <script src="./개인.js"></script>
+            <div class="main-image">
+              <img
+                src="./img/IMG_0384.JPG"
+                alt="Baseball Player"
+                id="currentMainImg"
+              />
+            </div>
+
+            <button class="arrow right" id="mainNext">▶</button>
+          </div>
+
+          <div class="grid-section">
+            <div class="grid-item">D - Day</div>
+            <div class="grid-item">Instagram 최근 게시물</div>
+            <div class="grid-item">짤</div>
+            <div class="grid-item">최신영상 (홈런 영상)</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PROFILE ===== -->
+      <section id="profile" class="container">
+        <div class="profile-card">
+          <div class="profile-image">
+            <img src="/project/img/IMG_1184.JPG" alt="선수 이미지" />
+          </div>
+
+          <div class="profile-info">
+            <div class="info-item">
+              <p class="label">◎ 이름 :</p>
+              <p class="value">노 시 환</p>
+            </div>
+            <div class="info-item">
+              <p class="label">◎ 생년월일 :</p>
+              <p class="value">2000년 12월 03일</p>
+            </div>
+            <div class="info-item">
+              <p class="label">◎ 학력 :</p>
+              <p class="value">경남고</p>
+            </div>
+            <div class="info-item">
+              <p class="label">◎ 소속팀 :</p>
+              <p class="value">한화이글스</p>
+            </div>
+            <div class="info-item">
+              <p class="label">◎ MBTI :</p>
+              <p class="value">ESFP</p>
+            </div>
+            <div class="info-item">
+              <p class="label">◎ 좌우명 :</p>
+              <p class="value">될놈은 된다</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== MEDIA ===== -->
+      <section id="media" class="media-container">
+        <div class="main-display">
+          <img
+            id="main-img"
+            src="/project/img/IMG_2098.JPG"
+            alt="메인 이미지"
+          />
+        </div>
+
+        <div class="controls">
+          <div class="arrow" id="prev-btn">◀</div>
+          <div id="thumb-container"></div>
+          <div class="arrow" id="next-btn">▶</div>
+        </div>
+      </section>
+
+      <!-- ===== CHEER ===== -->
+      <section id="cheer" class="main-content">
+        <div class="input-section">
+          <div class="input-group">
+            <label>이름 :</label>
+            <input type="text" id="userName" placeholder="이름 입력" />
+          </div>
+
+          <div class="input-group">
+            <label>내용 :</label>
+            <textarea
+              id="userContent"
+              placeholder="응원 메시지를 적어주세요"
+            ></textarea>
+          </div>
+
+          <button id="submitBtn" class="register-btn">등록</button>
+        </div>
+
+        <div class="display-section" id="cheerList">
+          <div class="cheer-card">
+            <h3>가나다</h3>
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== MODAL ===== -->
+    <div id="imageModal" class="modal">
+      <span class="close">&times;</span>
+      <button class="modal-btn prev" id="modalPrev">◀</button>
+      <img class="modal-content" id="expandedImg" />
+      <button class="modal-btn next" id="modalNext">▶</button>
+    </div>
+
+    <!-- JS (전부 유지) -->
+    <script src="/project/개인.js"></script>
+    >
   </body>
 </html>
