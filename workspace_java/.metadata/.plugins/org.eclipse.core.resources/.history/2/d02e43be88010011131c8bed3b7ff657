@@ -1,0 +1,27 @@
+package exam05;
+
+public class Ex15 {
+
+	public static void main(String[] args) {
+		String str = "     Welcome to my Site!!!  123  헤헤   "; // 물건을 만들어 ""안의 것을 넣고 str에 주소를 넣어라
+		System.out.println(str);
+		
+		System.out.println(str.trim()); // trim - 문자열의 좌측과 우측의 공백을 제거.
+		
+		//str.trim();
+		
+		String aaa = "   h       ";
+		System.out.println("[" + aaa + "]");
+		System.out.println("[" + aaa.trim() + "]");
+	
+		System.out.println("3.  " + str.toUpperCase());  //대문자로 바꾸는 기능
+		System.out.println("4.  " + str.toLowerCase());  //소문자로 바꾸는 기능
+	
+		System.out.println("5. " + str.contains("Site")); // Site라는 글자가 들어가있느냐
+	
+		str = "Welcome to my Site!!!  123  헤헤";
+		System.out.println("6." + str.substring(3,5));
+		
+	}
+
+}

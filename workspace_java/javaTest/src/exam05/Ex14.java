@@ -1,0 +1,18 @@
+package exam05;
+
+public class Ex14 {
+
+	public static void main(String[] args) {
+		String str1 = "Java";
+		String str2 = str1;
+		str1 = "Python";  //자동으로 new가 선언됨 새로운게 생성됨
+		str1 = "C+";
+		
+		System.out.println(str1);
+		System.out.println(str2);
+		
+		String str5 = new String("Java");
+		String str6 = new String("Python");		
+	}
+
+}

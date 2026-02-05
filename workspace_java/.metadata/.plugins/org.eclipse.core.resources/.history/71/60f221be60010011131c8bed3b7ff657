@@ -1,0 +1,19 @@
+package exam05;
+
+public class Ex11 {
+
+	public static void main(String[] args) {
+		// 2차원배열 = 표(행,열) , 0부터 시작한다. [], [][], [][][]
+		int[][] score = new int[3][4];// new 연산자 - 주소
+		
+		System.out.println(score[0][0]);
+		int imsi = score[0][1];
+		System.out.println(imsi);
+		
+		
+		
+		
+		
+	}
+
+}

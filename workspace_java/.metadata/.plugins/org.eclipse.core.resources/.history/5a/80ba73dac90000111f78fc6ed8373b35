@@ -1,0 +1,10 @@
+package exam05;
+
+public class EX08 {
+
+	public static void main(String[] args) {
+		// 입력 : 3명분의 이름, 국어, 영어, 수학, 과학, 역사
+
+	}
+
+}

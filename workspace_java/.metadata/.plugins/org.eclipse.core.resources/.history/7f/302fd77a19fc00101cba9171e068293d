@@ -1,0 +1,27 @@
+package exam04;
+
+public class Ex02 {
+
+	public static void main(String[] args) {
+		// 지하철 요금 : 자녀가 3명이상이면 무료, 아니면 1550원.
+
+		int 자녀수 = 4;
+		
+		if (자녀수 >= 3) {
+			System.out.println("요금 : 무료");
+		} else {
+			System.out.println("요금 : 1,550원");
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

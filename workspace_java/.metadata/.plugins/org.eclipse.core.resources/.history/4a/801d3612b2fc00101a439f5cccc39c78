@@ -1,0 +1,31 @@
+package exam04;
+
+import java.util.Scanner;
+
+public class Ex04 {
+
+	public static void main(String[] args) {
+		//입력 : Scanner 클래스를 이용.
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("이름을 입력하세요 : ");
+		String name = sc.nextLine();  //nextLine -> 엔터키 치기전까지의 내용이 변수에 들어감 , 문자열
+		//String name = sc.next(); 	//next -> 문자열, 첫번째 공백이 나오기 전까지 변수에 들어감
+		
+		System.out.print("국어점수를 입력하세요 : ");
+		String kor = sc.nextLine();
+		
+		System.out.print("영어점수를 입력하세요 : ");
+		String eng = sc.nextLine();
+		
+		System.out.print("수학점수를 입력하세요 : ");
+		String mat = sc.nextLine();
+		
+		System.out.println(name + " / " + kor + " / " + eng + " / " + mat ); //문자열에 다른 자료형을 더하면 문자열이됨
+
+		sc.close();
+		
+		
+	}
+
+}

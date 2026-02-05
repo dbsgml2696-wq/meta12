@@ -1,0 +1,16 @@
+package exam05;
+
+import java.util.Scanner;
+
+public class Ex05 {
+
+	public static void main(String[] args) {
+		// 입력 : 5명의 친구 이름
+		// 출력 : 5명의 친구 이름
+		Scanner sc = new Scanner(System.in);
+	
+		System.out.println("이름을 입력하세요");
+		String name_ = sc.nextLine();
+	}
+
+}

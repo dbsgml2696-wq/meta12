@@ -1,0 +1,23 @@
+package exam05;
+
+public class Ex15 {
+
+	public static void main(String[] args) {
+		String str = "Welcome to my Site!!!"; // 물건을 만들어 ""안의 것을 넣고 str에 주소를 넣어라
+		System.out.println(str);
+		
+		System.out.println(str.trim());
+		str.trim();
+		
+		
+
+	
+	
+	
+	
+	
+	
+	
+	}
+
+}

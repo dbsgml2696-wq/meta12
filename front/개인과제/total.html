@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hwantastic - Roh Si-hwan</title>
+    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="profile.css" />
+    <link rel="stylesheet" href="media.css" />
+    <link rel="stylesheet" href="cheer.css" />
+    <style>
+      /* 부드러운 스크롤 효과 */
+      html {
+        scroll-behavior: smooth;
+      }
+      section {
+        padding-top: 80px;
+        min-height: 100vh;
+      } /* 네비바 높이만큼 여백 */
+    </style>
+  </head>
+  <body>
+    <body>
+      <nav class="navbar">
+        <ul class="navbar-menu">
+          <li><a href="#" onclick="loadContent('home.html')">Home</a></li>
+          <li><a href="#" onclick="loadContent('profile.html')">Profile</a></li>
+          <li><a href="#" onclick="loadContent('media.html')">Media</a></li>
+          <li><a href="#" onclick="loadContent('cheer.html')">Cheer</a></li>
+        </ul>
+      </nav>
+
+      <div id="content-container"></div>
+
+      <script>
+        async function loadContent(url) {
+          try {
+            const response = await fetch(url);
+            const data = await response.text();
+
+            // 가져온 HTML에서 <body> 태그 내부 내용만 추출
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, "text/html");
+            const newContent = doc.querySelector("main") || doc.body;
+
+            document.getElementById("content-container").innerHTML =
+              newContent.innerHTML;
+
+            // (중요) 콘텐츠를 갈아끼운 후 해당 페이지의 JS 기능을 다시 활성화해야 할 수 있습니다.
+          } catch (error) {
+            console.error("페이지를 불러오는데 실패했습니다:", error);
+          }
+        }
+
+        // 첫 화면 로드
+        window.onload = () => loadContent("home.html");
+      </script>
+    </body>
+    <script src="/개인과제/home.js"></script>
+    <script src="/개인과제/profile.js"></script>
+    <script src="/개인과제/media.js"></script>
+    <script src="/개인과제/cheer.js"></script>
+  </body>
+</html>

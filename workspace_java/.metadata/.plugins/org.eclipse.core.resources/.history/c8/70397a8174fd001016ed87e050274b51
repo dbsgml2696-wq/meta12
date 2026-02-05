@@ -1,0 +1,16 @@
+package exam04;
+
+public class Ex11 {
+
+	public static void main(String[] args) {
+		// 
+		int i = 10;
+		while (i <= 50) {
+			System.out.println("현재 값: " + i);
+			i = i + 10;
+		}
+		
+		System.out.println("i의 값 : " + i);
+	}
+
+}

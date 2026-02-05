@@ -1,0 +1,48 @@
+package exam05;
+
+public class Ex02 {
+
+	ㅐㅣㅑ
+		int kor = 90;
+		int eng = 80;
+		int mat = 70;
+		int sci = 60;
+		int his = 50;
+		
+		//배열 만드는 방법1 - {값1, 값2, 값3}
+		int[] jumsu1 = {kor, eng, mat, sci, his};
+		System.out.println(jumsu1); //주소가 나온다.
+		System.out.println(jumsu1[0]);
+		
+		//배열을 만드는 방법2 - new 연산자 사용 (new->새로만들어라)
+		
+		// new(물건만들어라(만들면주소나옴))
+        //int 정수5개담을수있는배열을 만들어라.> 주소가나온다> 주소를 jumsy2에 담아라
+		int[] jumsu2 = new int[5]; //int형 자료 5개를 담을 수 있는 배열을 만들어라. ->주소
+		System.out.println(jumsu2); //주소 찍힘
+		jumsu2[0] = kor; //90
+		jumsu2[1] = eng; //80
+		jumsu2[2] = mat; //70
+		jumsu2[3] = sci; //60
+		jumsu2[4] = his; //50
+		
+//		System.out.println(strs); // 배열이 들어가있는 주소가 찍힌다.//기본형이 아니라서 null(널)로 채워진다.
+		
+		for (int i=0; i<jumsu2.length;i++) {
+			System.out.println("jumsu2[" + i + "] :" + jumsu2[i]);
+		 
+		}
+		
+//		System.out.println("jumsu2[0] : " + jumsu2[0]);
+//		System.out.println("jumsu2[1] : " + jumsu2[1]);
+//		System.out.println("jumsu2[2] : " + jumsu2[2]);
+//		System.out.println("jumsu2[3] : " + jumsu2[3]);
+//		System.out.println("jumsu2[4] : " + jumsu2[4]);
+//		
+		
+		
+		
+		
+		
+	}
+}

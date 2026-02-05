@@ -1,0 +1,23 @@
+package exam05;
+
+public class Ex04 {
+	public static void main(String[] args) {
+
+		double[] array = new double[3]; // {0.0, 0.0, 0.0}
+	System.out.println(array);
+	System.out.println(array[0]); //0.0
+	System.out.println(array[1]); //0.0
+	System.out.println(array[2]); //0.0
+
+	
+	array[0] = 99.0;
+	array[1] = 88.0;
+	array[2] = 77.0;
+	System.out.println (array[0] + "/" + array[1] + "/" + array[2]);
+	
+	//배열 차례대로 출력
+	for (int i=0; i<array.length; i++) {
+	System.out.println(array[1]);
+	
+	}
+}

@@ -1,0 +1,22 @@
+package exam05;
+
+public class Ex10 {
+
+	public static void main(String[] args) {
+		// 2차원 배열 - 행과 열로 이루어진 배열
+		int[][] nums = new int [2][3];
+		
+		nums[0][1] = 50;
+		
+		System.out.println(nums.length);
+		
+		System.out.println(nums[0][0]);
+		System.out.println(nums[0][1]);
+		System.out.println(nums[0][2]);
+		
+		System.out.println(nums[1][0]);
+		System.out.println(nums[1][1]);
+		System.out.println(nums[1][2]);
+	}
+
+}

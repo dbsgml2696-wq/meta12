@@ -1,0 +1,34 @@
+package exam04;
+
+public class Ex01 {
+
+	public static void main(String[] args) {
+		
+	
+		int age = 16;
+		
+		if (age > 19) {
+			System.out.println("술 마셔도 됨!");
+		} else {
+			System.out.println("술 마시면 안됨!");
+		}
+		
+		System.out.println("--프로그램 종료!--");	
+			
+			
+			
+			
+			
+			
+	}
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+}

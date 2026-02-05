@@ -1,0 +1,30 @@
+package exam04;
+
+public class Ex07 {
+
+	public static void main(String[] args) {
+		
+		int avg = 85; 
+		
+		switch (avg / 10) {
+		case 10:
+			System.out.println("1등급");
+		case 9: 
+			System.out.println("1등급");
+		case 8:
+			System.out.println("2등급");
+		case 7:
+			System.out.println("3등급");
+		case 6:
+			System.out.println("4등급");
+			
+		default:
+			System.out.println("5등급");
+		}
+		
+		
+		System.out.println("-- 프로그램 종료 --");
+
+	}
+
+}

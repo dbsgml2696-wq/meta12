@@ -1,0 +1,67 @@
+package exam05;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Ex07 {
+
+	public static void main(String[] args) {
+		// 입력 : 국어, 영어, 수학, 과학, 역사
+		// 출력 : 국어 영어 수학 과학 역사 총점 평균
+		
+		int[] jumsus = new int[5];
+		Scanner sc = new Scanner(System.in);
+		
+		for (int i=0; i<jumsus.length; i++) {
+			
+			System.out.println("점수 : ");
+			String temp_ = sc.nextLine();
+			int temp = Integer.parseInt(temp_);
+			jumsus[i] = temp;
+		}
+		sc.close();
+		
+		// int total = jumsus [0] + jumsus [1] + jumsus [2] + jumsus [3] + jumsus [4] ;
+		//double aver = total / 5.0;
+		
+		int total = 0;
+		for (int i=0; i<jumsus.length; i++) {
+			total = total + jumsus[i];
+		}
+		 System.out.println(total);
+		 double aver = total / 5.0;
+		 System.out.println(aver);
+		/* 
+		System.out.println("국어 : ");
+		String kor_ = sc.nextLine();
+		int kor = Integer.parseInt(kor_);
+		jumsus[0] = kor;
+				
+		System.out.println("영어 : ");
+		String eng_ = sc.nextLine();
+		int eng = Integer.parseInt(eng_);
+		jumsus[1] = eng;		
+		
+		System.out.println("수학 : ");
+		String mat_ = sc.nextLine();
+		int mat = Integer.parseInt(mat_);
+		jumsus[2] = mat;	
+				
+		System.out.println("과학 : ");
+		String sci_ = sc.nextLine();
+		int sci = Integer.parseInt(sci_);
+		jumsus[3] = sci;
+		
+		System.out.println("역사 : ");
+		String his_ = sc.nextLine();
+		int his = Integer.parseInt(his_);
+		jumsus[4] = his; 
+		*/
+				
+		
+		
+		
+	
+	}
+
+}

@@ -1,0 +1,40 @@
+package exam04;
+
+import java.util.Scanner;
+
+public class Ex12_1 {
+
+	public static void main(String[] args) {
+		//숫자 1개를 입력받아서 이후 1씩 더해 숫자 10개를 찍는 프로그램.
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("숫자를 입력하세요 : ");
+		String num_ = sc.nextLine();
+		
+		sc.close();
+		
+		int num = Integer.parseInt(num_);
+
+		
+		
+		//for문
+		for (int i = num; i < (num+10); i++) {
+			System.out.println(i);
+		}
+		System.out.println("-- 프로그램 종료 --");
+		
+		
+		//while문
+		int k = num;
+		while (k < (num+10)) {
+			
+			System.out.println(k);
+			k++;
+		}
+		
+		System.out.println("-- 프로그램 종료 --");
+
+	}
+
+}
